@@ -1,6 +1,6 @@
 # quest-n-click.github.io
 
-The website of [quest'n'click](https://github.com/Quest-n-Click): <https://quest-n-click.github.io>.
+The website of [Quest'n'Click](https://github.com/Quest-n-Click): <https://quest-n-click.github.io>.
 
 | Path | What | Comes from |
 |---|---|---|
