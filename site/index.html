@@ -4,107 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quest'n'Click</title>
-<meta name="description" content="An open-source point-and-click adventure engine for the browser: write the game as data, shape it in a visual Studio, prove it can be finished, ship it as an offline web game.">
-<meta property="og:title" content="Quest'n'Click">
-<meta property="og:description" content="Open-source point-and-click adventure engine for the browser.">
-<meta property="og:image" content="https://quest-n-click.github.io/img/og.png">
-<link rel="icon" href="img/logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://quest-n-click.cleverapps.io/">
+<meta http-equiv="refresh" content="0; url=https://quest-n-click.cleverapps.io/">
+<script>location.replace('https://quest-n-click.cleverapps.io/' + location.search + location.hash);</script>
 </head>
 <body>
-<header class="hero">
-  <nav class="top">
-    <a class="brand" href="./"><img src="img/logo.jpg" alt="" width="36" height="36"> Quest'n'Click</a>
-    <span class="links">
-      <a href="docs/">Docs</a>
-      <a href="https://github.com/Quest-n-Click">GitHub</a>
-    </span>
-  </nav>
-  <div class="hero-grid">
-    <div>
-      <h1>Make a point&#8209;and&#8209;click adventure for the browser.</h1>
-      <p class="lead">Write it as data, shape it in a visual Studio, check that it can be finished, and ship it as a web
-        game that installs on a phone and plays offline. Open source, MIT.</p>
-      <p class="ctas">
-        <a class="btn primary" href="play/">▶ Play the demo</a>
-        <a class="btn" href="play/studio.html">Open the Studio</a>
-        <a class="btn ghost" href="#start">Start a game</a>
-      </p>
-    </div>
-    <a class="shot hero-shot" href="play/"><img src="img/4119-hero.webp" alt="The Pantry Key: Grandma's living room, nine verbs, the bag" width="1280" height="720"></a>
-  </div>
-</header>
-
-<main>
-  <section class="cards">
-    <article>
-      <h2>The content is data</h2>
-      <p>Rooms, props, characters, items, rules, conversations, hints and scripts are plain TypeScript objects. Every
-        tool can read, check and play them.</p>
-<pre><code>on: [{ verb: 'use', a: 'pipe', b: 'tank',
-  do: [{ minigame: 'pipes' }, { set: 'tank_drained' }] }]</code></pre>
-    </article>
-    <article>
-      <h2>A Studio on the real engine</h2>
-      <p>Place things in rooms, edit the storyboard panel by panel, see every sprite sheet, and get the checks again
-        after every save. Alone in your browser, or hosted for a team.</p>
-    </article>
-    <article>
-      <h2>Proved before it ships</h2>
-      <p>The validator finds broken references and untranslated lines. The solver runs the real engine and explores
-        every reachable state, so a softlock fails the build.</p>
-    </article>
-    <article>
-      <h2>An offline web game</h2>
-      <p>A PWA that installs and plays offline after the first visit, played by touch or keyboard, with a download
-        budget and every file's licence accounted for.</p>
-    </article>
-  </section>
-
-  <section class="gallery">
-    <figure><img src="img/4119-studio-rooms.webp" alt="Studio, Rooms tab: the pantry selected, its lines editable" loading="lazy"><figcaption>Studio: rooms, placements, every line editable in place</figcaption></figure>
-    <figure><img src="img/4119-studio-check.webp" alt="Studio, Check tab: validator and solver" loading="lazy"><figcaption>Studio: the validator and the solver after every save</figcaption></figure>
-    <figure><img src="img/4119-player-scene.webp" alt="Talking to Grandma, her topics in the side column" loading="lazy"><figcaption>Conversations with topics and choices</figcaption></figure>
-    <figure><img src="img/4119-player-minigame.webp" alt="The pipes minigame" loading="lazy"><figcaption>Minigames, by touch or keyboard</figcaption></figure>
-    <figure><img src="img/4119-proof-graph.webp" alt="The puzzle graph with the critical path" loading="lazy"><figcaption>The puzzle graph and the critical path</figcaption></figure>
-    <figure><img src="img/4119-player-map.webp" alt="The world map" loading="lazy"><figcaption>A world map and several playable characters</figcaption></figure>
-  </section>
-
-  <section id="start" class="start">
-    <h2>Start a game</h2>
-    <p>Node 22.12 or newer, and Python 3 with Pillow for the art.</p>
-<pre><code>T=https://github.com/Quest-n-Click/quest-n-click/releases/download/v4.5.1/quest-n-click-4.5.1.tgz
-npx --package=$T quest-n-click create my-game "My Game" --engine=$T
-cd my-game &amp;&amp; npm install
-npm run assets &amp;&amp; npm run dev</code></pre>
-    <p>Then follow <a href="https://github.com/Quest-n-Click/quest-n-click/wiki/EN-Create-First-Game">your first game</a>
-      (<a href="https://github.com/Quest-n-Click/quest-n-click/wiki/FR-Creer-Premier-Jeu">en français</a>), or read the
-      <a href="docs/">versioned documentation</a>.</p>
-  </section>
-
-  <section class="join">
-    <h2>Join in</h2>
-    <p>The engine, the Studio, the sample games, the minigames and the docs all welcome contributions. Issues labelled
-      <em>good first issue</em> say what result is expected and which file to open first. An AI assistant is optional.</p>
-    <p class="ctas">
-      <a class="btn" href="https://github.com/Quest-n-Click/.github/blob/main/CONTRIBUTING.md">How to contribute</a>
-      <a class="btn ghost" href="https://github.com/search?q=org%3AQuest-n-Click+label%3A%22good+first+issue%22+state%3Aopen&amp;type=issues">Good first issues</a>
-    </p>
-  </section>
-</main>
-
-<footer>
-  <p>Quest'n'Click, formerly web-scumm, in homage to SCUMM. Code under MIT; the sample game's art and sound under CC BY 4.0.</p>
-  <p id="built"></p>
-</footer>
-<script>
-  // The build writes site.json (engine version and docs); the page reads it to say what it serves.
-  fetch('site.json').then((r) => (r.ok ? r.json() : null)).then((s) => {
-    if (s) document.getElementById('built').textContent = `Demo and Studio: engine ${s.engine}. Docs: ${s.docs.join(', ')}.`;
-  }).catch(() => {});
-</script>
+<p>Quest'n'Click's website is <a href="https://quest-n-click.cleverapps.io/">quest-n-click.cleverapps.io</a>.
+This address serves <a href="play/">the demo</a>, <a href="play/studio.html">the Studio demo</a> and
+<a href="docs/">the documentation archives</a>.</p>
 </body>
 </html>
