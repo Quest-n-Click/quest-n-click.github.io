@@ -1,22 +1,14 @@
 # quest-n-click.github.io
 
-The website of [quest'n'click](https://github.com/Quest-n-Click): <https://quest-n-click.github.io>.
+The demo host of [Quest'n'Click](https://github.com/Quest-n-Click). The website is <https://quest-n-click.cleverapps.io> ([its repository](https://github.com/Quest-n-Click/quest-n-click-site)); this one serves the builds it embeds.
 
 | Path | What | Comes from |
 |---|---|---|
-| `/` | landing page | `site/` in this repository |
+| `/` | a redirect to the website | `site/index.html` |
 | `/play/` and `/play/studio.html` | the sample game and the Studio demo | the engine's latest **signed** release tag, built by `scripts/build.sh` |
 | `/docs/<version>/` | versioned documentation | the engine's released docs archives, checked against their sums and attestations |
 
-## Change the landing page
-
-Edit `site/index.html` or `site/style.css`, then preview it:
-
-```bash
-python3 -m http.server -d site 8000   # http://localhost:8000 (the /play/ and /docs/ links need a full build)
-```
-
-Open a pull request: merging to `main` deploys.
+Merging a pull request to `main` deploys.
 
 ## Full build
 
@@ -31,4 +23,3 @@ The engine tag must be signed by a key in `allowed_signers` (this repository's c
 engine release triggers a rebuild through an `engine-release` dispatch; `Actions → deploy → Run workflow` does it by hand.
 
 Contributing: see the organization's [CONTRIBUTING](https://github.com/Quest-n-Click/.github/blob/main/CONTRIBUTING.md).
-Screenshots and art are from the sample game, CC BY 4.0.
