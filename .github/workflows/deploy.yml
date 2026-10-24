@@ -1,0 +1,54 @@
+# Builds and deploys https://quest-n-click.github.io: the landing page (site/), the demo and Studio demo built from
+# the engine's latest signed release tag (/play/), and the versioned docs from its released archives (/docs/).
+# Runs on a push to main, by hand (optionally with a tag), and on an `engine-release` dispatch sent by the engine.
+name: deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Engine release tag to build (default the latest release)
+        required: false
+  repository_dispatch:
+    types: [engine-release]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  attestations: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/docs-releases
+          key: docs-releases-${{ github.run_id }}
+          restore-keys: docs-releases-
+      - name: Build the site
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ENGINE_REPO: ${{ vars.ENGINE_REPO || 'Quest-n-Click/quest-n-click' }}
+          TAG: ${{ inputs.tag || github.event.client_payload.tag || '' }}
+        run: bash scripts/build.sh $TAG
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
+        with:
+          path: out
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5
